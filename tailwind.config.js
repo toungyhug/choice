@@ -48,11 +48,11 @@ module.exports = {
         0.75: "3px",
       },
       colors: {
-        webgencol: "#39c684",
-        fbbackground: "#F2F3F5",
+        choicegreen: "#2da159",
+        choicered: "#c03f3f",
       },
       fontFamily: {
-        montserrat: ["Montserrat"],
+        nunito: ["Nunito"],
       },
       fontSize: {
         "2xs": "10px",
