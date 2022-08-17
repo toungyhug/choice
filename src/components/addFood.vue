@@ -129,6 +129,7 @@ export default defineComponent({
       }
       tempNewFood.value = { ...tempNewFood.value, options: opt };
       dateStor.newFood = tempNewFood.value;
+      console.log(dateStor.newFood);
     };
     return { tempNewFood, dateStor, addFoodToTemp, tempNewFoodOptions };
   },

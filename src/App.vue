@@ -3,7 +3,7 @@
     class="w-full h-screen scrollbar-thin scrollbar-track-zinc-400 scrollbar-thumb-stone-200 font-nunito tracking-wide"
   >
     <div class="w-full bg-zinc-50 h-3/4 flex justify-center items-center">
-      <div class="w-4/5 h-2/3 bg-zinc-100">
+      <div class="w-4/5 h-2/3 bg-zinc-200 rounded-lg">
         <calendar />
       </div>
     </div>
