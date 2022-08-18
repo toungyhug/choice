@@ -9,6 +9,7 @@
       <div
         v-for="(day, ind) in week"
         :key="ind"
+        :id="ind.toString()"
         class="h-full bg-zinc-100 w-1/6 flex-shrink-0 mr-px ml-px"
         :class="{
           'bg-green-100 bg-opacity-30': ind + 1 == new Date().getDate(),
@@ -75,7 +76,7 @@ export default defineComponent({
     const weekGenerate = async () => {
       let arr = [];
       let arr2 = [];
-      let now = new Date().getDay();
+      let now = new Date().getDate();
       let d = new Date(new Date().getFullYear(), new Date().getMonth(), 1);
       while (d.getMonth() == new Date().getMonth()) {
         arr.push(d.getDate());
@@ -87,7 +88,10 @@ export default defineComponent({
       }
 
       setTimeout(() => {
-        scrollableDiv.value.scrollLeft = now * 1028;
+        document
+          .getElementById(`${now - 1}`)
+          ?.scrollIntoView({ block: "nearest" });
+        scrollableDiv.value.scrollLeft += 200;
       }, 200);
     };
 
