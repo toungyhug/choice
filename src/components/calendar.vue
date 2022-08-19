@@ -11,11 +11,73 @@
           SIERPIEŃ 2022
         </p>
       </div>
-      <div class="flex justify-center items-center ml-1">
-        <div
-          class="w-2.5 h-2.5 m-0.5 rounded-xl bg-yellow-700 bg-opacity-80"
-        ></div>
-        <p class="ml-2">gluten</p>
+      <div class="flex justify-center items-center opacity-80">
+        <div class="flex justify-center items-center">
+          <div
+            class="w-2.5 h-2.5 m-0.5 rounded-xl bg-gluten bg-opacity-80"
+          ></div>
+          <p class="ml-1.5">gluten</p>
+        </div>
+        <div class="flex justify-center items-center ml-3">
+          <div
+            class="w-2.5 h-2.5 m-0.5 rounded-xl bg-cukry bg-opacity-80"
+          ></div>
+          <p class="ml-1.5">cukry</p>
+        </div>
+        <div class="flex justify-center items-center ml-3">
+          <div
+            class="w-2.5 h-2.5 m-0.5 rounded-xl bg-przetworzone bg-opacity-80"
+          ></div>
+          <p class="ml-1.5">przetworzone</p>
+        </div>
+        <div class="flex justify-center items-center ml-3">
+          <div
+            class="w-2.5 h-2.5 m-0.5 rounded-xl bg-alkohol bg-opacity-80"
+          ></div>
+          <p class="ml-1.5">alkohol</p>
+        </div>
+        <div class="flex justify-center items-center ml-3">
+          <div
+            class="w-2.5 h-2.5 m-0.5 rounded-xl bg-ostre bg-opacity-80"
+          ></div>
+          <p class="ml-1.5">ostre</p>
+        </div>
+        <div class="flex justify-center items-center ml-3">
+          <div
+            class="w-2.5 h-2.5 m-0.5 rounded-xl bg-laktoza bg-opacity-80"
+          ></div>
+          <p class="ml-1.5">laktoza</p>
+        </div>
+        <div class="flex justify-center items-center ml-3">
+          <div
+            class="w-2.5 h-2.5 m-0.5 rounded-xl bg-błonnik bg-opacity-80"
+          ></div>
+          <p class="ml-1.5">błonnik</p>
+        </div>
+        <div class="flex justify-center items-center ml-3">
+          <div
+            class="w-2.5 h-2.5 m-0.5 rounded-xl bg-białko bg-opacity-80"
+          ></div>
+          <p class="ml-1.5">białko</p>
+        </div>
+        <div class="flex justify-center items-center ml-3">
+          <div
+            class="w-2.5 h-2.5 m-0.5 rounded-xl bg-tłuszcz bg-opacity-80"
+          ></div>
+          <p class="ml-1.5">tłuszcz</p>
+        </div>
+        <div class="flex justify-center items-center ml-3">
+          <div
+            class="w-2.5 h-2.5 m-0.5 rounded-xl bg-kofeina bg-opacity-80"
+          ></div>
+          <p class="ml-1.5">kofeina</p>
+        </div>
+        <div class="flex justify-center items-center ml-3">
+          <div
+            class="w-2.5 h-2.5 m-0.5 rounded-xl bg-kiszone bg-opacity-80"
+          ></div>
+          <p class="ml-1.5">kiszone</p>
+        </div>
       </div>
     </div>
     <div
@@ -60,73 +122,79 @@
             class="w-full h-full bg-neutral-50 p-1 pr-2 overflow-y-scroll scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-50"
           >
             <div
-              v-if="ind + 1 == 17"
-              class="p-1 bg-neutral-200 bg-opacity-50 w-full flex justify-center items-center mt-0.5 mb-1.5 rounded-xl"
+              @click="info(index)"
+              @mouseleave="info(null)"
+              v-for="(meal, index) in dateStor.newFood"
+              :key="index"
+              class="w-full cursor-pointer transition-all duration-75"
             >
               <div
-                class="w-3 h-full flex flex-col justify-around items-center p-1 ml-1 mr-1"
+                v-if="meal[3].slice(0, 2) == ind + 1"
+                class="p-1 bg-neutral-200 hover:bg-zinc-100 bg-opacity-50 w-full transition-all duration-75 flex flex-col justify-center items-center mt-0.5 mb-1.5 rounded-xl"
               >
-                <div
-                  class="w-2.5 h-2.5 m-0.5 rounded-xl bg-purple-700 bg-opacity-80"
-                ></div>
-                <div
-                  class="w-2.5 h-2.5 m-0.5 rounded-xl bg-violet-400 bg-opacity-80"
-                ></div>
-                <div
-                  class="w-2.5 h-2.5 m-0.5 rounded-xl bg-emerald-700 bg-opacity-80"
-                ></div>
-              </div>
-              <div class="w-full h-full flex justify-start items-center">
-                <div class="m-1 ml-2 mr-2">
-                  <p class="text-sm font-semibold text-neutral-900">
-                    zupa pomidorowa
-                  </p>
-                  <p class="text-xs text-neutral-500">z ryżem</p>
+                <div class="w-full flex justify-center items-center">
+                  <div
+                    class="w-3 h-full flex flex-col justify-around items-center p-1 ml-1 mr-1"
+                  >
+                    <div
+                      v-if="meal[5].includes('gluten')"
+                      class="w-2.5 h-2.5 m-0.5 rounded-xl bg-gluten bg-opacity-80"
+                    ></div>
+                    <div
+                      v-if="meal[5].includes('cukry')"
+                      class="w-2.5 h-2.5 m-0.5 rounded-xl bg-cukry bg-opacity-80"
+                    ></div>
+                    <div
+                      v-if="meal[5].includes('przetworzone')"
+                      class="w-2.5 h-2.5 m-0.5 rounded-xl bg-przetworzone bg-opacity-80"
+                    ></div>
+                    <div
+                      v-if="meal[5].includes('alkohol')"
+                      class="w-2.5 h-2.5 m-0.5 rounded-xl bg-alkohol bg-opacity-80"
+                    ></div>
+                    <div
+                      v-if="meal[5].includes('ostre')"
+                      class="w-2.5 h-2.5 m-0.5 rounded-xl bg-ostre bg-opacity-80"
+                    ></div>
+                    <div
+                      v-if="meal[5].includes('laktoza')"
+                      class="w-2.5 h-2.5 m-0.5 rounded-xl bg-laktoza bg-opacity-80"
+                    ></div>
+                    <div
+                      v-if="meal[5].includes('błonnik')"
+                      class="w-2.5 h-2.5 m-0.5 rounded-xl bg-błonnik bg-opacity-80"
+                    ></div>
+                    <div
+                      v-if="meal[5].includes('białko')"
+                      class="w-2.5 h-2.5 m-0.5 rounded-xl bg-białko bg-opacity-80"
+                    ></div>
+                    <div
+                      v-if="meal[5].includes('tłuszcz')"
+                      class="w-2.5 h-2.5 m-0.5 rounded-xl bg-tłuszcz bg-opacity-80"
+                    ></div>
+                    <div
+                      v-if="meal[5].includes('kofeina')"
+                      class="w-2.5 h-2.5 m-0.5 rounded-xl bg-kofeina bg-opacity-80"
+                    ></div>
+                    <div
+                      v-if="meal[5].includes('kiszone')"
+                      class="w-2.5 h-2.5 m-0.5 rounded-xl bg-kiszone bg-opacity-80"
+                    ></div>
+                  </div>
+                  <div class="w-full h-full flex justify-start items-center">
+                    <div class="m-1 ml-2 mr-2">
+                      <p class="text-sm font-semibold text-neutral-900">
+                        {{ meal[1] }}
+                      </p>
+                      <p class="text-xs text-neutral-700">{{ meal[4] }}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-
-            <div
-              v-if="ind + 1 == 18"
-              class="p-1 bg-neutral-200 bg-opacity-50 w-full flex justify-center items-center mt-0.5 mb-1.5 rounded-xl"
-            >
-              <div
-                class="w-3 h-full flex flex-col justify-around items-center p-1 ml-1 mr-1"
-              >
                 <div
-                  class="w-2.5 h-2.5 m-0.5 rounded-xl bg-amber-700 bg-opacity-80"
-                ></div>
-                <div
-                  class="w-2.5 h-2.5 m-0.5 rounded-xl bg-violet-500 bg-opacity-80"
-                ></div>
-                <div
-                  class="w-2.5 h-2.5 m-0.5 rounded-xl bg-emerald-300 bg-opacity-80"
-                ></div>
-              </div>
-              <div class="w-full h-full flex justify-start items-center">
-                <div class="m-1 ml-2 mr-2">
-                  <p class="text-sm font-semibold text-neutral-900">
-                    makaron chiński
-                  </p>
-                  <p class="text-xs text-neutral-500">z sosem sojowym</p>
-                </div>
-              </div>
-            </div>
-            <div
-              v-if="ind + 1 == 18"
-              class="p-1 bg-neutral-200 bg-opacity-50 w-full flex justify-center items-center mt-0.5 mb-1.5 rounded-xl"
-            >
-              <div
-                class="w-3 h-full flex flex-col justify-around items-center p-1 ml-1 mr-1"
-              >
-                <div
-                  class="w-2.5 h-2.5 m-0.5 rounded-xl bg-blue-400 bg-opacity-80"
-                ></div>
-              </div>
-              <div class="w-full h-full flex justify-start items-center">
-                <div class="m-1 ml-2 mr-2">
-                  <p class="text-sm font-semibold text-neutral-900">kawa</p>
-                  <p class="text-xs text-neutral-500"></p>
+                  v-if="extInfo == index"
+                  class="w-full text-2xs ml-3 text-zinc-500 transition-all"
+                >
+                  <p>zawiera: {{ meal[5].replaceAll(",", ", ") }}</p>
                 </div>
               </div>
             </div>
@@ -148,6 +216,7 @@ export default defineComponent({
     const dateStor: any = dataStore();
 
     const scrollableDiv = ref<any>(null);
+    const extInfo = ref<any>(null);
 
     const week = ref<any[]>([]);
     const daysOfWeek = ref<any>([
@@ -163,6 +232,10 @@ export default defineComponent({
     const scroll = (e: any) => {
       e.preventDefault();
       scrollableDiv.value.scrollLeft -= e.deltaY / 0.8;
+    };
+
+    const info = (i: any) => {
+      extInfo.value = i;
     };
 
     const weekGenerate = async () => {
@@ -189,7 +262,16 @@ export default defineComponent({
 
     weekGenerate();
 
-    return { dateStor, week, weekGenerate, week, scroll, scrollableDiv };
+    return {
+      dateStor,
+      week,
+      weekGenerate,
+      week,
+      scroll,
+      scrollableDiv,
+      info,
+      extInfo,
+    };
   },
 });
 </script>

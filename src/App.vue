@@ -25,6 +25,23 @@ export default defineComponent({
   setup() {
     const dateStor: any = dataStore();
 
+    const getData = async () => {
+      const response = await fetch("src/data/foodlog.csv");
+      let data = await response.text();
+
+      let log: any = [];
+      let rows = data.split(/\n/).slice(1);
+      rows.forEach((el) => {
+        let row = el.split(";");
+        log.push(row);
+      });
+      console.log(log);
+
+      dateStor.newFood = log;
+    };
+
+    getData();
+
     return { dateStor };
   },
   components: { addFood, calendar },

@@ -50,6 +50,17 @@ module.exports = {
       colors: {
         choicegreen: "#2da159",
         choicered: "#c03f3f",
+        gluten: "#b37700",
+        cukry: "#7e9586",
+        błonnik: "#7300e6",
+        laktoza: "#80ff80",
+        przetworzone: "#ff0080",
+        białko: "#66ccff",
+        kofeina: "#0066cc",
+        tłuszcz: "#ffd633",
+        kiszone: "#ff80bf",
+        ostre: "#e62e00",
+        alkohol: "#00802b",
       },
       fontFamily: {
         nunito: ["Nunito"],
