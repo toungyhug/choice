@@ -2,7 +2,20 @@
   <div
     class="w-full h-screen scrollbar-thin scrollbar-track-zinc-400 scrollbar-thumb-stone-200 font-nunito tracking-wide"
   >
-    <div class="w-full bg-stone-50 h-2/5 flex justify-start items-end"></div>
+    <div class="w-full bg-stone-50 h-2/5 flex justify-center items-center">
+      <div class="flex justify-center items-center">
+        <div class="m-5 flex justify-center items-center">
+          <h1 class="text-[80px] font-extrabold">choice</h1>
+        </div>
+        <div class="m-5 flex justify-end items-end">
+          <button
+            class="p-1 pr-5 pl-5 hf bg-orange-400 rounded-2xl text-zinc-50 tracking-wide font-bold hover:bg-orange-500 transition-all duration-100"
+          >
+            dodaj nowy posiłek
+          </button>
+        </div>
+      </div>
+    </div>
     <div class="w-full h-[45%] flex">
       <div class="w-full h-full bg-stone-200 bg-opacity-70">
         <calendar />
