@@ -1,8 +1,8 @@
 <template>
-  <div class="w-76 bg-gray-200 rounded-2xl overflow-hidden">
+  <div class="w-full bg-gray-200 rounded-2xl overflow-hidden">
     <div class="w-full h-full">
       <h3
-        class="text-center text-base font-normal p-2 bg-choicegreen text-white"
+        class="text-center text-base font-normal p-2 bg-neutral-500 text-white"
       >
         Nowe danie w dniu 04.05.2022
       </h3>
@@ -76,12 +76,12 @@
         <div class="w-full flex justify-evenly items-center pt-3 pb-3">
           <button
             type="submit"
-            class="p-0.5 pr-7 pl-7 rounded-lg bg-choicegreen text-white hover:opacity-70 transition-all duration-100 font-normal tracking-wider text-2sm"
+            class="p-0.5 pr-7 pl-7 rounded-lg bg-orange-400 hover:bg-orange-500 text-white transition-all duration-100 font-medium tracking-wider text-2sm"
           >
             Dodaj
           </button>
           <button
-            class="p-0.5 pr-7 pl-7 rounded-lg bg-zinc-400 text-white hover:opacity-70 transition-all duration-100 font-normal tracking-wider text-2sm"
+            class="p-0.5 pr-7 pl-7 rounded-lg bg-neutral-400 hover:bg-neutral-500 text-white transition-all duration-100 font-medium tracking-wider text-2sm"
           >
             Anuluj
           </button>
