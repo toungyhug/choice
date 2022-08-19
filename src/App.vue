@@ -2,6 +2,9 @@
   <div
     class="w-full h-screen scrollbar-thin scrollbar-track-zinc-400 scrollbar-thumb-stone-200 font-nunito tracking-wide"
   >
+    <div v-if="mealVisible" class="absolute right-30 top-2 w-2/7">
+      <addFood />
+    </div>
     <div class="w-full bg-stone-50 h-2/5 flex justify-center items-center">
       <div class="flex justify-center items-center">
         <div class="m-5 flex justify-center items-center">
@@ -9,6 +12,7 @@
         </div>
         <div class="m-5 flex justify-end items-end">
           <button
+            @click="addMealHandler"
             class="p-1 pr-5 pl-5 hf bg-orange-400 rounded-2xl text-zinc-50 tracking-wide font-bold hover:bg-orange-500 transition-all duration-100"
           >
             dodaj nowy posiłek
@@ -21,9 +25,9 @@
         <calendar />
       </div>
     </div>
-    <div class="w-full bg-[#ececec] h-3/4 flex justify-center items-center">
-      <addFood />
-    </div>
+    <div
+      class="w-full bg-[#ececec] h-3/4 flex justify-center items-center"
+    ></div>
   </div>
 </template>
 
@@ -37,6 +41,8 @@ import calendar from "./components/calendar.vue";
 export default defineComponent({
   setup() {
     const dateStor: any = dataStore();
+
+    const mealVisible = ref<boolean>(false);
 
     const getData = async () => {
       const response = await fetch("src/data/foodlog.csv");
@@ -53,9 +59,13 @@ export default defineComponent({
       dateStor.newFood = log;
     };
 
+    const addMealHandler = () => {
+      mealVisible.value = !mealVisible.value;
+    };
+
     getData();
 
-    return { dateStor };
+    return { dateStor, mealVisible, addMealHandler };
   },
   components: { addFood, calendar },
 });
