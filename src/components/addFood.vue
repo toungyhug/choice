@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full bg-gray-200 rounded-2xl overflow-hidden">
+  <div class="w-full bg-gray-100 rounded-2xl overflow-hidden">
     <div class="w-full h-full">
       <h3
         class="text-center text-base font-normal p-2 bg-neutral-500 text-white"
@@ -8,14 +8,21 @@
       </h3>
       <form @submit.prevent="addFoodToTemp" class="text-sm font-light">
         <div class="p-2 rounded-b-3xl bg-gray-100">
-          <div class="p-1 pt-1.5 pb-1.5">
+          <div class="p-1 pt-1.5 pb-1.5 flex justify-between items-center">
             <p class="pl-0.5">Numer dania w tym dniu: 1</p>
+            <button
+              type="submit"
+              class="p-0.5 pr-7 pl-7 rounded-lg bg-orange-400 hover:bg-orange-500 text-white transition-all duration-100 font-medium tracking-wider text-2sm"
+            >
+              Dodaj
+            </button>
           </div>
           <div class="flex justify-between items-center p-1 pt-1.5 pb-1.5">
             <p class="pl-0.5">Nazwa dania:</p>
             <input
               v-model="tempNewFood['name' as keyof typeof tempNewFood]"
               type="text"
+              required
               class="text-sm p-0.5 pr-2 pl-2 bg-gray-50 border border-gray-200 rounded-md focus:outline focus:outline-zinc-300"
             />
           </div>
@@ -42,6 +49,7 @@
             <input
               v-model="tempNewFood['desc' as keyof typeof tempNewFood]"
               type="text"
+              required
               class="text-sm w-full p-0.5 pr-2 pl-2 bg-gray-50 border border-gray-200 rounded-md focus:outline focus:outline-zinc-300"
             />
           </div>
@@ -72,19 +80,6 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="w-full flex justify-evenly items-center pt-3 pb-3">
-          <button
-            type="submit"
-            class="p-0.5 pr-7 pl-7 rounded-lg bg-orange-400 hover:bg-orange-500 text-white transition-all duration-100 font-medium tracking-wider text-2sm"
-          >
-            Dodaj
-          </button>
-          <button
-            class="p-0.5 pr-7 pl-7 rounded-lg bg-neutral-400 hover:bg-neutral-500 text-white transition-all duration-100 font-medium tracking-wider text-2sm"
-          >
-            Anuluj
-          </button>
         </div>
       </form>
     </div>
