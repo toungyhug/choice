@@ -120,7 +120,7 @@
               {{ day.day }}
             </p>
             <div
-              @click="dateStor.addFoodHandler(ind + 1)"
+              @click="dateStor.addFoodHandler(day.date)"
               class="absolute top-1 right-1 p-px pr-3 pl-3 text-sm border rounded-3xl cursor-pointer bg-orange-500 bg-opacity-80 text-white font-bold hover:bg-orange-600 transition-all duration-100"
             >
               +

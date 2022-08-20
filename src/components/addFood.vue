@@ -2,7 +2,7 @@
   <div class="w-96 h-96 rounded-xl overflow-hidden">
     <div class="w-full h-full flex flex-col justify-center items-center">
       <div class="w-full bg-neutral-600 flex justify-between items-center p-3">
-        <h3 class="text-base font-normal text-white w-full">
+        <h3 class="text-2base font-normal text-white w-full">
           Nowe danie w dniu {{ dateStor.newFoodDate }}
         </h3>
         <button
@@ -22,7 +22,7 @@
           <div
             class="p-1 pt-1.5 pb-1.5 flex justify-between items-center w-full"
           >
-            <p class="pl-0.5">Numer dania w tym dniu: 1</p>
+            <p class="pl-0.5">Numer dania w tym dniu: ??</p>
             <button
               type="submit"
               class="p-0.5 pr-7 pl-7 rounded-lg bg-orange-400 hover:bg-orange-500 text-white transition-all duration-100 font-medium tracking-wider text-2sm"
