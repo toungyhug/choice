@@ -132,7 +132,7 @@
             <div
               @click="info(index)"
               @mouseleave="info(null)"
-              v-for="(meal, index) in dateStor.newFood"
+              v-for="(meal, index) in dateStor.food"
               :key="index"
               class="w-full cursor-pointer transition-all duration-75"
             >

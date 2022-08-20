@@ -5,7 +5,9 @@ export const dataStore = defineStore({
         version: "0.20.0",
         addFood: false,
         options: ['gluten', 'cukry', 'przetworzone', 'alkohol', 'ostre', 'laktoza', 'błonnik', 'białko', 'tłuszcz', 'kofeina', 'kiszone'],
+        food: [],
         newFood: [],
+        fileIndex: null,
         newFoodDate: null,
     }),
     actions: {
@@ -23,7 +25,8 @@ export const dataStore = defineStore({
                 log.push(row);
             });
             console.log(log);
-            this.newFood = log;
+            this.fileIndex = log.length;
+            this.food = log;
         },
     }
 });
