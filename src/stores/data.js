@@ -12,7 +12,19 @@ export const dataStore = defineStore({
         addFoodHandler(date) {
             this.addFood = !this.addFood;
             this.newFoodDate = date;
-        }
+        },
+        async getData() {
+            const response = await fetch("src/data/foodlog.txt");
+            let data = await response.text();
+            let log = [];
+            let rows = data.split(/\n/).slice(1);
+            rows.forEach((el) => {
+                let row = el.split(";");
+                log.push(row);
+            });
+            console.log(log);
+            this.newFood = log;
+        },
     }
 });
 //# sourceMappingURL=data.js.map
