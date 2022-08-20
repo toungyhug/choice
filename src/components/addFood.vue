@@ -110,13 +110,14 @@ export default defineComponent({
   name: "addFood",
   setup() {
     const dateStor: any = dataStore();
-    const tempNewFood = ref<{}>({
+    const tempNewFood = ref<any>({
       name: "",
       amount: 0,
       desc: "",
+      date: null,
       options: [],
     });
-    const tempNewFoodOptions = ref<{}>({
+    const tempNewFoodOptions = ref<any>({
       gluten: false,
       cukry: false,
       przetworzone: false,
@@ -132,14 +133,25 @@ export default defineComponent({
 
     const addFoodToTemp = () => {
       let opt = [];
+      let row = [];
+      let string = "";
       for (let [key, value] of Object.entries(tempNewFoodOptions.value)) {
         if (value == true) {
           opt.push(key);
         }
       }
-      tempNewFood.value = { ...tempNewFood.value, options: opt };
-      dateStor.newFood = tempNewFood.value;
-      console.log(dateStor.newFood);
+      tempNewFood.value = {
+        ...tempNewFood.value,
+        date: dateStor.newFoodDate,
+      };
+      row.push((dateStor.fileIndex + 1).toString());
+      row.push(tempNewFood.value.name);
+      row.push(tempNewFood.value.amount);
+      row.push(tempNewFood.value.date);
+      row.push(tempNewFood.value.desc);
+      row.push(opt.toString());
+
+      dateStor.newFood = row;
     };
     return { tempNewFood, dateStor, addFoodToTemp, tempNewFoodOptions };
   },
