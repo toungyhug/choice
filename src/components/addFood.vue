@@ -1,15 +1,28 @@
 <template>
-  <div class="w-full bg-gray-100 rounded-2xl overflow-hidden">
-    <div class="w-full h-full">
-      <h3
-        class="text-center text-base font-normal p-2 bg-neutral-500 text-white"
+  <div class="w-96 h-96 rounded-xl overflow-hidden">
+    <div class="w-full h-full flex flex-col justify-center items-center">
+      <div class="w-full bg-neutral-600 flex justify-between items-center p-3">
+        <h3 class="text-2base font-normal text-white w-full">
+          Nowe danie w dniu {{ dateStor.newFoodDate }}
+        </h3>
+        <button
+          @click="dateStor.addFoodHandler"
+          class="text-white text-sm tracking-wide hover:text-neutral-300 transition-all duration-100"
+        >
+          Zamknij
+        </button>
+      </div>
+      <form
+        @submit.prevent="addFoodToTemp"
+        class="text-sm font-light flex-1 w-full"
       >
-        Nowe danie w dniu 04.05.2022
-      </h3>
-      <form @submit.prevent="addFoodToTemp" class="text-sm font-light">
-        <div class="p-2 rounded-b-3xl bg-gray-100">
-          <div class="p-1 pt-1.5 pb-1.5 flex justify-between items-center">
-            <p class="pl-0.5">Numer dania w tym dniu: 1</p>
+        <div
+          class="p-2 rounded-b-3xl bg-neutral-100 flex flex-col justify-around items-start h-full w-full"
+        >
+          <div
+            class="p-1 pt-1.5 pb-1.5 flex justify-between items-center w-full"
+          >
+            <p class="pl-0.5">Numer dania w tym dniu: ??</p>
             <button
               type="submit"
               class="p-0.5 pr-7 pl-7 rounded-lg bg-orange-400 hover:bg-orange-500 text-white transition-all duration-100 font-medium tracking-wider text-2sm"
@@ -17,7 +30,9 @@
               Dodaj
             </button>
           </div>
-          <div class="flex justify-between items-center p-1 pt-1.5 pb-1.5">
+          <div
+            class="flex justify-between items-center p-1 pt-1.5 pb-1.5 w-full"
+          >
             <p class="pl-0.5">Nazwa dania:</p>
             <input
               v-model="tempNewFood['name' as keyof typeof tempNewFood]"
@@ -26,7 +41,7 @@
               class="text-sm p-0.5 pr-2 pl-2 bg-gray-50 border border-gray-200 rounded-md focus:outline focus:outline-zinc-300"
             />
           </div>
-          <div class="flex justify-between items-start p-1 pt-2 pb-1.5">
+          <div class="flex justify-between items-start p-1 pt-2 pb-1.5 w-full">
             <p class="pl-0.5">Ilość lub wielkość:</p>
             <div class="p-0 m-0">
               <input
@@ -43,7 +58,7 @@
             </div>
           </div>
           <div
-            class="flex flex-col justify-start items-start p-1 pt-1.5 pb-1.5"
+            class="flex flex-col justify-start items-start p-1 pt-1.5 pb-1.5 w-full"
           >
             <p class="pb-1 pl-0.5">Opis dodatkowy:</p>
             <input
