@@ -93,7 +93,9 @@
           'bg-neutral-50 bg-opacity-95': ind + 1 == new Date().getDate(),
         }"
       >
-        <div class="w-full h-full flex flex-col justify-start items-center">
+        <div
+          class="w-full h-full flex flex-col justify-start items-center relative"
+        >
           <div
             @wheel="scroll"
             class="h-1/7 w-full bg-neutral-100 pb-5 pt-5 flex flex-col justify-center items-center"
@@ -117,6 +119,11 @@
             >
               {{ day }}
             </p>
+            <div
+              class="absolute top-1 right-1 p-px pr-3 pl-3 text-sm border rounded-3xl cursor-pointer bg-orange-500 bg-opacity-80 text-white font-bold hover:bg-orange-600 transition-all duration-100"
+            >
+              +
+            </div>
           </div>
           <div
             class="w-full h-full bg-neutral-50 p-1 pr-2 overflow-y-scroll scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-50"
