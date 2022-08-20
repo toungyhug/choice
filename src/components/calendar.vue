@@ -109,7 +109,7 @@
                 'text-red-700': (ind + 1) % 7 == 0,
               }"
             >
-              {{ ind + 1 }}
+              {{ day.date.slice(0, 2) }}
             </h3>
             <p
               class="text-sm text-center tracking-widest"
@@ -117,9 +117,10 @@
                 'text-red-700': (ind + 1) % 7 == 0,
               }"
             >
-              {{ day }}
+              {{ day.day }}
             </p>
             <div
+              @click="dateStor.addFoodHandler(ind + 1)"
               class="absolute top-1 right-1 p-px pr-3 pl-3 text-sm border rounded-3xl cursor-pointer bg-orange-500 bg-opacity-80 text-white font-bold hover:bg-orange-600 transition-all duration-100"
             >
               +
@@ -136,7 +137,7 @@
               class="w-full cursor-pointer transition-all duration-75"
             >
               <div
-                v-if="meal[3].slice(0, 2) == ind + 1"
+                v-if="meal[3] == day.date"
                 class="p-1 bg-neutral-200 hover:bg-zinc-100 bg-opacity-50 w-full transition-all duration-75 flex flex-col justify-center items-center mt-0.5 mb-1.5 rounded-xl"
               >
                 <div class="w-full flex justify-center items-center">
@@ -248,16 +249,27 @@ export default defineComponent({
     const weekGenerate = async () => {
       let arr = [];
       let arr2 = [];
+      let arr3 = [];
       let now = new Date().getDate();
       let d = new Date(new Date().getFullYear(), new Date().getMonth(), 1);
       while (d.getMonth() == new Date().getMonth()) {
         arr.push(d.getDate());
         arr2.push(daysOfWeek.value[d.getDay()]);
+        arr3.push(
+          (d.getDate() < 10 ? "0" + d.getDate() : d.getDate()) +
+            "." +
+            (d.getMonth() + 1 < 10
+              ? "0" + (d.getMonth() + 1)
+              : d.getMonth() + 1) +
+            "." +
+            d.getFullYear()
+        );
         d.setDate(d.getDate() + 1);
       }
       for (let i = 0; i < arr.length; i++) {
-        week.value.push((arr[i] = arr2[i]));
+        week.value.push({ day: arr2[i], date: arr3[i] });
       }
+      console.log(arr3);
 
       setTimeout(() => {
         document

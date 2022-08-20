@@ -1,11 +1,17 @@
 <template>
-  <div class="w-full h-full">
+  <div class="w-96 h-96 rounded-xl overflow-hidden">
     <div class="w-full h-full flex flex-col justify-center items-center">
-      <h3
-        class="text-center text-base font-normal p-2 bg-neutral-600 text-white w-full"
-      >
-        Nowe danie w dniu 04.05.2022
-      </h3>
+      <div class="w-full bg-neutral-600 flex justify-between items-center p-3">
+        <h3 class="text-base font-normal text-white w-full">
+          Nowe danie w dniu {{ dateStor.newFoodDate }}
+        </h3>
+        <button
+          @click="dateStor.addFoodHandler"
+          class="text-white text-sm tracking-wide hover:text-neutral-300 transition-all duration-100"
+        >
+          Zamknij
+        </button>
+      </div>
       <form
         @submit.prevent="addFoodToTemp"
         class="text-sm font-light flex-1 w-full"
