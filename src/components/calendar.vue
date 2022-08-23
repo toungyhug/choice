@@ -13,68 +13,60 @@
       </div>
       <div class="flex justify-center items-center opacity-80">
         <div class="flex justify-center items-center">
-          <div
-            class="w-2.5 h-2.5 m-0.5 rounded-xl bg-gluten bg-opacity-80"
-          ></div>
+          <div class="w-3 h-1.5 m-0.5 rounded-xl bg-gluten bg-opacity-80"></div>
           <p class="ml-1.5">gluten</p>
         </div>
         <div class="flex justify-center items-center ml-3">
-          <div
-            class="w-2.5 h-2.5 m-0.5 rounded-xl bg-cukry bg-opacity-80"
-          ></div>
+          <div class="w-3 h-1.5 m-0.5 rounded-xl bg-cukry bg-opacity-80"></div>
           <p class="ml-1.5">cukry</p>
         </div>
         <div class="flex justify-center items-center ml-3">
           <div
-            class="w-2.5 h-2.5 m-0.5 rounded-xl bg-przetworzone bg-opacity-80"
+            class="w-3 h-1.5 m-0.5 rounded-xl bg-przetworzone bg-opacity-80"
           ></div>
           <p class="ml-1.5">przetworzone</p>
         </div>
         <div class="flex justify-center items-center ml-3">
           <div
-            class="w-2.5 h-2.5 m-0.5 rounded-xl bg-alkohol bg-opacity-80"
+            class="w-3 h-1.5 m-0.5 rounded-xl bg-alkohol bg-opacity-80"
           ></div>
           <p class="ml-1.5">alkohol</p>
         </div>
         <div class="flex justify-center items-center ml-3">
-          <div
-            class="w-2.5 h-2.5 m-0.5 rounded-xl bg-ostre bg-opacity-80"
-          ></div>
+          <div class="w-3 h-1.5 m-0.5 rounded-xl bg-ostre bg-opacity-80"></div>
           <p class="ml-1.5">ostre</p>
         </div>
         <div class="flex justify-center items-center ml-3">
           <div
-            class="w-2.5 h-2.5 m-0.5 rounded-xl bg-laktoza bg-opacity-80"
+            class="w-3 h-1.5 m-0.5 rounded-xl bg-laktoza bg-opacity-80"
           ></div>
           <p class="ml-1.5">laktoza</p>
         </div>
         <div class="flex justify-center items-center ml-3">
           <div
-            class="w-2.5 h-2.5 m-0.5 rounded-xl bg-błonnik bg-opacity-80"
+            class="w-3 h-1.5 m-0.5 rounded-xl bg-błonnik bg-opacity-80"
           ></div>
           <p class="ml-1.5">błonnik</p>
         </div>
         <div class="flex justify-center items-center ml-3">
-          <div
-            class="w-2.5 h-2.5 m-0.5 rounded-xl bg-białko bg-opacity-80"
-          ></div>
+          <div class="w-3 h-1.5 m-0.5 rounded-xl bg-białko bg-opacity-80"></div>
           <p class="ml-1.5">białko</p>
         </div>
         <div class="flex justify-center items-center ml-3">
           <div
-            class="w-2.5 h-2.5 m-0.5 rounded-xl bg-tłuszcz bg-opacity-80"
+            class="w-3 h-1.5 m-0.5 rounded-xl bg-tłuszcz bg-opacity-80"
           ></div>
           <p class="ml-1.5">tłuszcz</p>
         </div>
         <div class="flex justify-center items-center ml-3">
           <div
-            class="w-2.5 h-2.5 m-0.5 rounded-xl bg-kofeina bg-opacity-80"
+            class="w-3 h-1.5 m-0.5 rounded-xl bg-kofeina bg-opacity-80"
           ></div>
           <p class="ml-1.5">kofeina</p>
         </div>
         <div class="flex justify-center items-center ml-3">
           <div
-            class="w-2.5 h-2.5 m-0.5 rounded-xl bg-kiszone bg-opacity-80"
+            class="w-3 h-1.5 m-0.5 rounded-xl bg-kiszone bg-opacity-80"
           ></div>
           <p class="ml-1.5">kiszone</p>
         </div>
@@ -146,47 +138,47 @@
                   >
                     <div
                       v-if="meal[5].includes('gluten')"
-                      class="w-2.5 h-2.5 m-0.5 rounded-xl bg-gluten bg-opacity-80"
+                      class="w-3 h-1.5 m-0.5 rounded-xl bg-gluten bg-opacity-80"
                     ></div>
                     <div
                       v-if="meal[5].includes('cukry')"
-                      class="w-2.5 h-2.5 m-0.5 rounded-xl bg-cukry bg-opacity-80"
+                      class="w-3 h-1.5 m-0.5 rounded-xl bg-cukry bg-opacity-80"
                     ></div>
                     <div
                       v-if="meal[5].includes('przetworzone')"
-                      class="w-2.5 h-2.5 m-0.5 rounded-xl bg-przetworzone bg-opacity-80"
+                      class="w-3 h-1.5 m-0.5 rounded-xl bg-przetworzone bg-opacity-80"
                     ></div>
                     <div
                       v-if="meal[5].includes('alkohol')"
-                      class="w-2.5 h-2.5 m-0.5 rounded-xl bg-alkohol bg-opacity-80"
+                      class="w-3 h-1.5 m-0.5 rounded-xl bg-alkohol bg-opacity-80"
                     ></div>
                     <div
                       v-if="meal[5].includes('ostre')"
-                      class="w-2.5 h-2.5 m-0.5 rounded-xl bg-ostre bg-opacity-80"
+                      class="w-3 h-1.5 m-0.5 rounded-xl bg-ostre bg-opacity-80"
                     ></div>
                     <div
                       v-if="meal[5].includes('laktoza')"
-                      class="w-2.5 h-2.5 m-0.5 rounded-xl bg-laktoza bg-opacity-80"
+                      class="w-3 h-1.5 m-0.5 rounded-xl bg-laktoza bg-opacity-80"
                     ></div>
                     <div
                       v-if="meal[5].includes('błonnik')"
-                      class="w-2.5 h-2.5 m-0.5 rounded-xl bg-błonnik bg-opacity-80"
+                      class="w-3 h-1.5 m-0.5 rounded-xl bg-błonnik bg-opacity-80"
                     ></div>
                     <div
                       v-if="meal[5].includes('białko')"
-                      class="w-2.5 h-2.5 m-0.5 rounded-xl bg-białko bg-opacity-80"
+                      class="w-3 h-1.5 m-0.5 rounded-xl bg-białko bg-opacity-80"
                     ></div>
                     <div
                       v-if="meal[5].includes('tłuszcz')"
-                      class="w-2.5 h-2.5 m-0.5 rounded-xl bg-tłuszcz bg-opacity-80"
+                      class="w-3 h-1.5 m-0.5 rounded-xl bg-tłuszcz bg-opacity-80"
                     ></div>
                     <div
                       v-if="meal[5].includes('kofeina')"
-                      class="w-2.5 h-2.5 m-0.5 rounded-xl bg-kofeina bg-opacity-80"
+                      class="w-3 h-1.5 m-0.5 rounded-xl bg-kofeina bg-opacity-80"
                     ></div>
                     <div
                       v-if="meal[5].includes('kiszone')"
-                      class="w-2.5 h-2.5 m-0.5 rounded-xl bg-kiszone bg-opacity-80"
+                      class="w-3 h-1.5 m-0.5 rounded-xl bg-kiszone bg-opacity-80"
                     ></div>
                   </div>
                   <div class="w-full h-full flex justify-start items-center">

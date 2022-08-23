@@ -134,7 +134,6 @@ export default defineComponent({
     const addFoodToTemp = () => {
       let opt = [];
       let row = [];
-      let string = "";
       for (let [key, value] of Object.entries(tempNewFoodOptions.value)) {
         if (value == true) {
           opt.push(key);
