@@ -29,6 +29,14 @@
             >
               Dodaj
             </button>
+            <a
+              v-if="linkActive"
+              download="foodlog.txt"
+              ref="link"
+              class="text-xs"
+            >
+              pobierz
+            </a>
           </div>
           <div
             class="flex justify-between items-center p-1 pt-1.5 pb-1.5 w-full"
@@ -119,6 +127,7 @@
 import { ref } from "vue";
 import { dataStore } from "../stores/data.js";
 import { defineComponent } from "vue";
+import { text } from "stream/consumers";
 
 export default defineComponent({
   name: "addFood",
@@ -146,6 +155,9 @@ export default defineComponent({
       kiszone: false,
     });
 
+    const linkActive = ref<boolean>(false);
+    const link = ref<any>(null);
+
     const addFoodToTemp = () => {
       let opt = [];
       let row = [];
@@ -168,9 +180,29 @@ export default defineComponent({
 
       dateStor.newFood = row;
       console.log(dateStor.newFood);
-      console.log(dateStor.fileIndex);
+      dateStor.food.push(dateStor.newFood);
+
+      console.log(dateStor.food);
+
+      let textFile: any = null;
+      let data = new Blob([dateStor.food], { type: "text/plain" });
+      if (textFile !== null) {
+        window.URL.revokeObjectURL(textFile);
+      }
+      textFile = window.URL.createObjectURL(data);
+      linkActive.value = true;
+      setTimeout(() => {
+        link.value.href = textFile;
+      }, 500);
     };
-    return { tempNewFood, dateStor, addFoodToTemp, tempNewFoodOptions };
+    return {
+      tempNewFood,
+      dateStor,
+      addFoodToTemp,
+      tempNewFoodOptions,
+      link,
+      linkActive,
+    };
   },
 });
 </script>
