@@ -261,7 +261,6 @@ export default defineComponent({
       for (let i = 0; i < arr.length; i++) {
         week.value.push({ day: arr2[i], date: arr3[i] });
       }
-      console.log(arr3);
 
       setTimeout(() => {
         document
