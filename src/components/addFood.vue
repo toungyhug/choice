@@ -48,6 +48,8 @@
                 v-model="tempNewFood['amount' as keyof typeof tempNewFood]"
                 type="range"
                 class="text-sm p-0.5 pr-2 pl-2 pb-0 accent-zinc-500"
+                min="1"
+                max="3"
               />
               <div
                 class="flex w-full justify-between items-center m-0 p-0 text-xs tracking-widest h-0.5"
@@ -63,6 +65,18 @@
             <p class="pb-1 pl-0.5">Opis dodatkowy:</p>
             <input
               v-model="tempNewFood['desc' as keyof typeof tempNewFood]"
+              type="text"
+              class="text-sm w-full p-0.5 pr-2 pl-2 bg-gray-50 border border-gray-200 rounded-md focus:outline focus:outline-zinc-300"
+            />
+          </div>
+          <div
+            class="flex flex-col justify-start items-start p-1 pt-1.5 pb-1.5 w-full"
+          >
+            <p class="pb-1 pl-0.5">
+              Tagi <span class="text-2xs">(po przecinku)</span>:
+            </p>
+            <input
+              v-model="tempNewFood['tags' as keyof typeof tempNewFood]"
               type="text"
               required
               class="text-sm w-full p-0.5 pr-2 pl-2 bg-gray-50 border border-gray-200 rounded-md focus:outline focus:outline-zinc-300"
@@ -112,10 +126,11 @@ export default defineComponent({
     const dateStor: any = dataStore();
     const tempNewFood = ref<any>({
       name: "",
-      amount: 0,
+      amount: 1,
       desc: "",
       date: null,
       options: [],
+      tags: "",
     });
     const tempNewFoodOptions = ref<any>({
       gluten: false,
@@ -143,14 +158,17 @@ export default defineComponent({
         ...tempNewFood.value,
         date: dateStor.newFoodDate,
       };
-      row.push((dateStor.fileIndex + 1).toString());
-      row.push(tempNewFood.value.name);
+      row.push(dateStor.fileIndex.toString());
+      row.push(tempNewFood.value.name.toLowerCase());
       row.push(tempNewFood.value.amount);
       row.push(tempNewFood.value.date);
-      row.push(tempNewFood.value.desc);
+      row.push(tempNewFood.value.desc.toLowerCase());
       row.push(opt.toString());
+      row.push(tempNewFood.value.tags.toLowerCase());
 
       dateStor.newFood = row;
+      console.log(dateStor.newFood);
+      console.log(dateStor.fileIndex);
     };
     return { tempNewFood, dateStor, addFoodToTemp, tempNewFoodOptions };
   },
