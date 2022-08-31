@@ -213,13 +213,15 @@
       </div>
     </div>
     <div
-      class="w-80 h-full bg-orange-400 pr-4 p-2 mr-1 overflow-y-scroll scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-orange-400"
+      v-if="dateStor.newFood.length > 0"
+      class="w-80 h-full bg-orange-400 pr-4 p-2 mr-1 overflow-y-scroll scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-orange-400 transition-all"
     >
       <div
         class="w-full flex justify-between items-center pl-1 text-white mb-1"
       >
         <div class="font-semibold tracking-wider">do zapisania</div>
         <div
+          @click="saveFile"
           class="text-2sm bg-orange-500 p-0.5 pl-4 pr-4 rounded-full hover:bg-opacity-50 cursor-pointer transition-all"
         >
           pobierz i zapisz
@@ -282,6 +284,8 @@ export default defineComponent({
       extInfo.value = i;
     };
 
+    const saveFile = () => {};
+
     const weekGenerate = async () => {
       let arr = [];
       let arr2 = [];
@@ -324,6 +328,7 @@ export default defineComponent({
       scrollableDiv,
       info,
       extInfo,
+      saveFile,
     };
   },
 });

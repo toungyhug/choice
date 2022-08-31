@@ -157,6 +157,30 @@ export default defineComponent({
     const linkActive = ref<boolean>(false);
     const link = ref<any>(null);
 
+    const foodReset = () => {
+      tempNewFood.value = {
+        name: "",
+        amount: 1,
+        desc: "",
+        date: null,
+        options: [],
+        tags: "",
+      };
+      tempNewFoodOptions.value = {
+        gluten: false,
+        cukry: false,
+        przetworzone: false,
+        alkohol: false,
+        ostre: false,
+        laktoza: false,
+        błonnik: false,
+        białko: false,
+        tłuszcz: false,
+        kofeina: false,
+        kiszone: false,
+      };
+    };
+
     const addFoodToTemp = () => {
       let opt = [];
       let row = [];
@@ -187,6 +211,7 @@ export default defineComponent({
         window.URL.revokeObjectURL(textFile);
       }
       textFile = window.URL.createObjectURL(data);
+      foodReset();
       // setTimeout(() => {
       //   link.value.href = textFile;
       // }, 500);
