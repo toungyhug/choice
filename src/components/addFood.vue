@@ -201,20 +201,11 @@ export default defineComponent({
       row.push(tempNewFood.value.desc.toLowerCase());
       row.push(opt.toString());
       row.push(tempNewFood.value.tags.toLowerCase());
-
       dateStor.newFood.push(row);
       dateStor.food.push(row);
 
-      let textFile: any = null;
-      let data = new Blob([dateStor.food], { type: "text/plain" });
-      if (textFile !== null) {
-        window.URL.revokeObjectURL(textFile);
-      }
-      textFile = window.URL.createObjectURL(data);
       foodReset();
-      // setTimeout(() => {
-      //   link.value.href = textFile;
-      // }, 500);
+      dateStor.isFileReady = false;
     };
     return {
       tempNewFood,

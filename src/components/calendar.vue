@@ -221,10 +221,18 @@
       >
         <div class="font-semibold tracking-wider">do zapisania</div>
         <div
+          v-if="!dateStor.isFileReady"
           @click="saveFile"
           class="text-2sm bg-orange-500 p-0.5 pl-4 pr-4 rounded-full hover:bg-opacity-50 cursor-pointer transition-all"
         >
-          pobierz i zapisz
+          generuj plik
+        </div>
+        <div
+          v-if="dateStor.isFileReady"
+          @click="fileReadyHandler"
+          class="text-2sm bg-orange-500 p-0.5 pl-4 pr-4 rounded-full hover:bg-opacity-50 cursor-pointer transition-all"
+        >
+          <a ref="link" download="foodlog.csv">pobierz i zapisz</a>
         </div>
       </div>
       <div class="flex-shrink flex flex-col justify-start items-start">
@@ -263,6 +271,7 @@ export default defineComponent({
 
     const scrollableDiv = ref<any>(null);
     const extInfo = ref<any>(null);
+    const link = ref<any>(null);
 
     const week = ref<any[]>([]);
     const daysOfWeek = ref<any>([
@@ -285,8 +294,39 @@ export default defineComponent({
     };
 
     const saveFile = () => {
+      let str = [] as any;
+      let row = "";
+      str.push(dateStor.head);
+      dateStor.food.forEach((el: any) => {
+        row = "";
+        for (let i = 0; i < el.length; i++) {
+          if (i == el.length - 1) {
+            row = row + el[i];
+          } else {
+            row = row + (el[i] + ";");
+          }
+        }
+        str.push("\n" + row);
+      });
       console.log(dateStor.food);
       console.log(dateStor.newFood);
+      dateStor.isFileReady = true;
+      let textFile: any = null;
+      let data = new Blob([str], { type: "text/csv;charset=utf-8;" });
+      if (textFile !== null) {
+        window.URL.revokeObjectURL(textFile);
+      }
+      textFile = window.URL.createObjectURL(data);
+      console.log(str);
+      console.log(textFile);
+
+      setTimeout(() => {
+        link.value.href = textFile;
+      }, 300);
+    };
+
+    const fileReadyHandler = () => {
+      dateStor.isFileReady = false;
     };
 
     const weekGenerate = async () => {
@@ -330,8 +370,10 @@ export default defineComponent({
       scroll,
       scrollableDiv,
       info,
+      link,
       extInfo,
       saveFile,
+      fileReadyHandler,
     };
   },
 });
