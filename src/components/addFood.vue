@@ -127,7 +127,6 @@
 import { ref } from "vue";
 import { dataStore } from "../stores/data.js";
 import { defineComponent } from "vue";
-import { text } from "stream/consumers";
 
 export default defineComponent({
   name: "addFood",
@@ -158,6 +157,30 @@ export default defineComponent({
     const linkActive = ref<boolean>(false);
     const link = ref<any>(null);
 
+    const foodReset = () => {
+      tempNewFood.value = {
+        name: "",
+        amount: "1",
+        desc: "",
+        date: null,
+        options: [],
+        tags: "",
+      };
+      tempNewFoodOptions.value = {
+        gluten: false,
+        cukry: false,
+        przetworzone: false,
+        alkohol: false,
+        ostre: false,
+        laktoza: false,
+        błonnik: false,
+        białko: false,
+        tłuszcz: false,
+        kofeina: false,
+        kiszone: false,
+      };
+    };
+
     const addFoodToTemp = () => {
       let opt = [];
       let row = [];
@@ -170,30 +193,19 @@ export default defineComponent({
         ...tempNewFood.value,
         date: dateStor.newFoodDate,
       };
+      dateStor.fileIndex = dateStor.food.length;
       row.push(dateStor.fileIndex.toString());
       row.push(tempNewFood.value.name.toLowerCase());
-      row.push(tempNewFood.value.amount);
+      row.push(tempNewFood.value.amount.toString());
       row.push(tempNewFood.value.date);
       row.push(tempNewFood.value.desc.toLowerCase());
       row.push(opt.toString());
       row.push(tempNewFood.value.tags.toLowerCase());
+      dateStor.newFood.push(row);
+      dateStor.food.push(row);
 
-      dateStor.newFood = row;
-      console.log(dateStor.newFood);
-      dateStor.food.push(dateStor.newFood);
-
-      console.log(dateStor.food);
-
-      let textFile: any = null;
-      let data = new Blob([dateStor.food], { type: "text/plain" });
-      if (textFile !== null) {
-        window.URL.revokeObjectURL(textFile);
-      }
-      textFile = window.URL.createObjectURL(data);
-      linkActive.value = true;
-      setTimeout(() => {
-        link.value.href = textFile;
-      }, 500);
+      foodReset();
+      dateStor.isFileReady = false;
     };
     return {
       tempNewFood,
