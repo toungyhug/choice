@@ -160,7 +160,7 @@ export default defineComponent({
     const foodReset = () => {
       tempNewFood.value = {
         name: "",
-        amount: 1,
+        amount: "1",
         desc: "",
         date: null,
         options: [],
@@ -193,17 +193,17 @@ export default defineComponent({
         ...tempNewFood.value,
         date: dateStor.newFoodDate,
       };
+      dateStor.fileIndex = dateStor.food.length;
       row.push(dateStor.fileIndex.toString());
       row.push(tempNewFood.value.name.toLowerCase());
-      row.push(tempNewFood.value.amount);
+      row.push(tempNewFood.value.amount.toString());
       row.push(tempNewFood.value.date);
       row.push(tempNewFood.value.desc.toLowerCase());
       row.push(opt.toString());
       row.push(tempNewFood.value.tags.toLowerCase());
 
       dateStor.newFood.push(row);
-      console.log(dateStor.newFood);
-      dateStor.food.push(dateStor.newFood);
+      dateStor.food.push(row);
 
       let textFile: any = null;
       let data = new Blob([dateStor.food], { type: "text/plain" });

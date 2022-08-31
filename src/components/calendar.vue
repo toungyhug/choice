@@ -217,7 +217,7 @@
       class="w-80 h-full bg-orange-400 pr-4 p-2 mr-1 overflow-y-scroll scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-orange-400 transition-all"
     >
       <div
-        class="w-full flex justify-between items-center pl-1 text-white mb-1"
+        class="w-full flex justify-between items-center pl-1 text-white mb-2 mt-1"
       >
         <div class="font-semibold tracking-wider">do zapisania</div>
         <div
@@ -227,11 +227,11 @@
           pobierz i zapisz
         </div>
       </div>
-      <div class="h-full flex-shrink flex flex-col justify-start items-start">
+      <div class="flex-shrink flex flex-col justify-start items-start">
         <div
           v-for="(mealToAdd, iin) in dateStor.newFood"
           :key="iin"
-          class="bg-neutral-50 bg-opacity-90 mb-1 mt-1 w-full flex flex-col justify-center items-start p-1 pl-2 pr-2 text-sm tracking-wide rounded-xl"
+          class="bg-neutral-50 bg-opacity-90 mb-1 mt-1 w-full flex flex-col justify-center items-start p-1 pl-2 pr-2 text-sm tracking-wide rounded-xl overflow-hidden"
         >
           <div class="text-xs font-medium tracking-wide">
             {{ mealToAdd[3] }}
@@ -284,7 +284,10 @@ export default defineComponent({
       extInfo.value = i;
     };
 
-    const saveFile = () => {};
+    const saveFile = () => {
+      console.log(dateStor.food);
+      console.log(dateStor.newFood);
+    };
 
     const weekGenerate = async () => {
       let arr = [];

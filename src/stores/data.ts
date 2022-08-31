@@ -28,7 +28,6 @@ export const dataStore = defineStore({
             });
             console.log(log);
             this.fileIndex = log.length;
-      
             this.food = log;
           },
     }
