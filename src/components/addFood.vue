@@ -127,7 +127,6 @@
 import { ref } from "vue";
 import { dataStore } from "../stores/data.js";
 import { defineComponent } from "vue";
-import { text } from "stream/consumers";
 
 export default defineComponent({
   name: "addFood",
@@ -178,11 +177,9 @@ export default defineComponent({
       row.push(opt.toString());
       row.push(tempNewFood.value.tags.toLowerCase());
 
-      dateStor.newFood = row;
+      dateStor.newFood.push(row);
       console.log(dateStor.newFood);
       dateStor.food.push(dateStor.newFood);
-
-      console.log(dateStor.food);
 
       let textFile: any = null;
       let data = new Blob([dateStor.food], { type: "text/plain" });
@@ -190,10 +187,9 @@ export default defineComponent({
         window.URL.revokeObjectURL(textFile);
       }
       textFile = window.URL.createObjectURL(data);
-      linkActive.value = true;
-      setTimeout(() => {
-        link.value.href = textFile;
-      }, 500);
+      // setTimeout(() => {
+      //   link.value.href = textFile;
+      // }, 500);
     };
     return {
       tempNewFood,
